@@ -1,0 +1,22 @@
+{
+  "name": "3re_agency_back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abenfraj/3RE_Agency_Back.git"
+  },
+  "author": "Ayoub BEN FRAJ & Adam El Karki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abenfraj/3RE_Agency_Back/issues"
+  },
+  "homepage": "https://github.com/abenfraj/3RE_Agency_Back#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
