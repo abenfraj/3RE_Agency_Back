@@ -1,10 +1,20 @@
 const express = require('express');
-const app = express();
+const { initDatabase } = require('./database');
+const { getMaisons } = require('./helpers/maison');
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+const app = express();
+const PORT = 3000;
+
+const connection = initDatabase();
+
+app.listen(PORT, () => {
+  console.log('Express app listening on port ' + PORT);
 });
 
-app.listen(3000, () => {
-  console.log('Express app listening on port 3000');
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.get('/maisons', (req, res) => {
+    getMaisons(req, res, connection);
 });
