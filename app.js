@@ -1,6 +1,7 @@
 const express = require('express');
 const { initDatabase } = require('./database');
-const { getMaisons } = require('./helpers/maison');
+const { getGarages } = require('./helpers/garage');
+const { getMaisons, getLogements, getLogementsFromCountry } = require('./helpers/logements');
 
 const app = express();
 const PORT = 3000;
@@ -11,10 +12,15 @@ app.listen(PORT, () => {
   console.log('Express app listening on port ' + PORT);
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
+app.get('/logements', (req, res) => {
+    getLogements(req, res, connection);
 });
 
-app.get('/maisons', (req, res) => {
-    getMaisons(req, res, connection);
+app.get('/garages', (req,res) => {
+  getGarages(req,res,connection);
+});
+
+app.get('/logements/:country', (req,res) => {
+  const country = req.params.country
+  getLogementsFromCountry(req,res,connection, country);
 });
