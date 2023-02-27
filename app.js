@@ -4,9 +4,12 @@ const { getGarages } = require('./helpers/garage');
 const { getMaisons, getLogements, getLogementsFromCountry } = require('./helpers/logements');
 
 const app = express();
+const cors = require('cors');
 const PORT = 3000;
 
 const connection = initDatabase();
+
+app.use(cors());
 
 app.listen(PORT, () => {
   console.log('Express app listening on port ' + PORT);
